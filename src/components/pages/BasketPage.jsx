@@ -111,8 +111,7 @@ export default function BasketPage() {
                 </p>
               ) : (
                 <p>
-                  A product link will appear here once this item is connected
-                  to a retailer API.
+                  A product link will appear here.
                 </p>
               )}
             </>
