@@ -1,0 +1,22 @@
+Weather Smart Wardrobe is an interactive web application that helps
+users plan what to wear based on forecasted weather conditions. By
+integrating real-time weather data from the OpenWeatherMap API, the
+site provides clothing recommendations tailored to the temperature,
+precipitation, and wind conditions of a user-selected day and location.
+Users simply input a city and a date within the next week, and the app
+automatically fetches the forecast and generates suggested outfits. The
+clothing items will be displayed on the website as Cards, and the user
+can save certain items and get links to buy them. We are planning on
+displaying various clothing items from different brands/retail websites
+and provide
+When the user first goes on the website, the landing page goes to an
+input for date and time. Then, when the user submits their
+specifications, the forecast for that day is displayed at that location,
+along with the different clothing items (ex. Raincoat, sweater, tanktop)
+that we recommend. The user can then filter between different types
+of clothing items and click on a “save” icon, which then go to a basket
+page. In the basket page, different brands for the selected clothing
+items are shown, along with links to where the user can buy them from
+the retailers’ websites. The saved clothing items will be saved in the
+user’s browser, and if the user can then move that item to a “bought”
+section on the website.
