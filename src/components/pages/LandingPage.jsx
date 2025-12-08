@@ -4,6 +4,7 @@ import WeatherSearchForm from "../weather/WeatherSearchForm";
 import RecommendationsPanel from "../wardrobe/RecommendationsPanel";
 
 const LANDING_STATE_KEY = "wsw-landing-state";
+let hasCheckedNavigationType = false;
 
 // default weather for first render (before any search)
 const DEFAULT_WEATHER = {
@@ -102,17 +103,22 @@ function getInitialLandingState() {
   if (typeof window === "undefined") return null;
 
   try {
-    // Detect full page reloads and ignore any stored session state in that case.
-    const navEntries =
-      window.performance && window.performance.getEntriesByType
-        ? window.performance.getEntriesByType("navigation")
-        : null;
-    const isReload =
-      navEntries && navEntries[0] && navEntries[0].type === "reload";
+    // Only apply the "reload" rule once per actual page load.
+    if (!hasCheckedNavigationType) {
+      hasCheckedNavigationType = true;
 
-    if (isReload) {
-      window.sessionStorage.removeItem(LANDING_STATE_KEY);
-      return null;
+      const navEntries =
+        window.performance && window.performance.getEntriesByType
+          ? window.performance.getEntriesByType("navigation")
+          : null;
+      const nav = navEntries && navEntries[0];
+
+      // If this tab was opened via a full reload, start from a clean slate
+      // for this load (do not reuse any previous sessionStorage state).
+      if (nav && nav.type === "reload") {
+        window.sessionStorage.removeItem(LANDING_STATE_KEY);
+        return null;
+      }
     }
 
     const raw = window.sessionStorage.getItem(LANDING_STATE_KEY);
@@ -121,6 +127,7 @@ function getInitialLandingState() {
     return null;
   }
 }
+
 
 export default function LandingPage() {
   const saved = getInitialLandingState() || {};
