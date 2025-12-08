@@ -1,8 +1,6 @@
-// src/components/pages/BasketPage.jsx
-
 import { useEffect, useState } from "react";
 import { Alert, Col, Row, Modal, Button } from "react-bootstrap";
-import ClothingCard from "../cards/ClothingCard";
+import ClothingCard from "../wardrobe/ClothingCard";
 
 export default function BasketPage() {
   const [items, setItems] = useState([]);

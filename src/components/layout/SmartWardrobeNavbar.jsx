@@ -1,10 +1,8 @@
-// src/components/nav/SmartWardrobeNavbar.jsx
-
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router";
 import crest from "../../assets/uw-crest.svg";
 
-export default function SmartWardrobeNavbar(props) {
+export default function SmartWardrobeNavbar() {
   return (
     <Navbar bg="dark" variant="dark" sticky="top" expand="sm" collapseOnSelect>
       <Container>

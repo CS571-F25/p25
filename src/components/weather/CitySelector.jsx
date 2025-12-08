@@ -32,7 +32,7 @@ export default function CitySelector(props) {
         aria-describedby={`${props.id}-hint`}
         autoComplete="off"
       />
-      {/* Keep instructions for assistive tech, but hide visually so layout stays aligned */}
+      {/* Keep for screen readers, but visually hidden so layout stays aligned */}
       <div id={`${props.id}-hint`} className="form-text visually-hidden">
         Begin typing and then choose a city from the suggestions.
       </div>

@@ -1,8 +1,9 @@
-import { useState } from "react";
-import { Alert, Button, Col, Form, Row } from "react-bootstrap";
-import CitySelector from "../forms/CitySelector";
+import { useState, useEffect } from "react";
 import WeatherHero from "../weather/WeatherHero";
-import RecommendationsList from "../recommendations/RecommendationsList";
+import WeatherSearchForm from "../weather/WeatherSearchForm";
+import RecommendationsPanel from "../wardrobe/RecommendationsPanel";
+
+const LANDING_STATE_KEY = "wsw-landing-state";
 
 // default weather for first render (before any search)
 const DEFAULT_WEATHER = {
@@ -14,163 +15,43 @@ const DEFAULT_WEATHER = {
   iconUrl: null
 };
 
-// base catalog of clothing options
+// base catalog of clothing options, with consistent weather tags
 const OUTFIT_SETS = {
   cold: [
-    {
-      name: "Insulated winter coat",
-      category: "Outerwear",
-      weatherTag: "Very cold",
-      description: "Heavy insulated coat to keep you warm below freezing."
-    },
-    {
-      name: "Snow pants",
-      category: "Bottom",
-      weatherTag: "Snow & ice",
-      description: "Waterproof snow pants for slush and deep snow."
-    },
-    {
-      name: "Thermal base layer",
-      category: "Bottom",
-      weatherTag: "Very cold",
-      description: "Thermal leggings to wear under pants."
-    },
-    {
-      name: "Beanie",
-      category: "Accessories",
-      weatherTag: "Cold",
-      description: "Knit hat to keep your ears warm."
-    },
-    {
-      name: "Insulated gloves",
-      category: "Accessories",
-      weatherTag: "Cold",
-      description: "Water-resistant gloves for wind and snow."
-    },
-    {
-      name: "Insulated boots",
-      category: "Footwear",
-      weatherTag: "Snow & ice",
-      description: "Warm, waterproof boots with good traction."
-    }
+    { name: "Insulated winter coat", category: "Outerwear",   weatherTag: "Freezing" },
+    { name: "Snow pants",            category: "Bottom",      weatherTag: "Freezing" },
+    { name: "Thermal base layer",    category: "Bottom",      weatherTag: "Freezing" },
+    { name: "Beanie",                category: "Accessories", weatherTag: "Freezing" },
+    { name: "Insulated gloves",      category: "Accessories", weatherTag: "Freezing" },
+    { name: "Insulated boots",       category: "Footwear",    weatherTag: "Freezing" }
   ],
   cool: [
-    {
-      name: "Light jacket",
-      category: "Outerwear",
-      weatherTag: "Cool & breezy",
-      description: "Perfect for 40–55°F days."
-    },
-    {
-      name: "Sweater",
-      category: "Top",
-      weatherTag: "Cool",
-      description: "Layer over a tee for extra warmth."
-    },
-    {
-      name: "Jeans",
-      category: "Bottom",
-      weatherTag: "All-purpose",
-      description: "Versatile choice for most cool or mild days."
-    }
+    { name: "Light jacket",  category: "Outerwear", weatherTag: "Cool" },
+    { name: "Sweater",       category: "Top",       weatherTag: "Cool" },
+    { name: "Jeans",         category: "Bottom",    weatherTag: "Cool" }
   ],
   mild: [
-    {
-      name: "Long-sleeve t-shirt",
-      category: "Top",
-      weatherTag: "Mild",
-      description: "Comfortable for 55–70°F weather."
-    },
-    {
-      name: "Chinos",
-      category: "Bottom",
-      weatherTag: "Mild",
-      description: "Lightweight pants for comfortable, dry days."
-    },
-    {
-      name: "Light sneakers",
-      category: "Footwear",
-      weatherTag: "Dry",
-      description: "Everyday shoes for walking around campus."
-    },
-    {
-      name: "Light hoodie",
-      category: "Outerwear",
-      weatherTag: "Evening",
-      description: "Easy extra layer for cooler evenings."
-    }
+    { name: "Long-sleeve t-shirt", category: "Top",       weatherTag: "Mild" },
+    { name: "Chinos",              category: "Bottom",    weatherTag: "Mild" },
+    { name: "Light sneakers",      category: "Footwear",  weatherTag: "Mild" },
+    { name: "Light hoodie",        category: "Outerwear", weatherTag: "Mild" }
   ],
   hot: [
-    {
-      name: "T-shirt",
-      category: "Top",
-      weatherTag: "Warm & sunny",
-      description: "Breathable t-shirt for hot days."
-    },
-    {
-      name: "Tank top",
-      category: "Top",
-      weatherTag: "Very hot",
-      description: "Keeps you cool in strong heat."
-    },
-    {
-      name: "Shorts",
-      category: "Bottom",
-      weatherTag: "Hot",
-      description: "Ideal for temperatures above 75°F."
-    },
-    {
-      name: "Sandals",
-      category: "Footwear",
-      weatherTag: "Dry & hot",
-      description: "Open shoes for dry, hot weather."
-    },
-    {
-      name: "Sun hat",
-      category: "Accessories",
-      weatherTag: "Sunny",
-      description: "Helps shade your face from the sun."
-    }
+    { name: "T-shirt",   category: "Top",       weatherTag: "Hot" },
+    { name: "Tank top",  category: "Top",       weatherTag: "Hot" },
+    { name: "Shorts",    category: "Bottom",    weatherTag: "Hot" },
+    { name: "Sandals",   category: "Footwear",  weatherTag: "Hot" },
+    { name: "Sun hat",   category: "Accessories", weatherTag: "Hot" }
   ],
   rainy: [
-    {
-      name: "Waterproof raincoat",
-      category: "Outerwear",
-      weatherTag: "Rain",
-      description: "Keeps you dry during light or steady rain."
-    },
-    {
-      name: "Compact umbrella",
-      category: "Accessories",
-      weatherTag: "Rain",
-      description: "Easy to toss in a backpack for surprise showers."
-    },
-    {
-      name: "Waterproof boots",
-      category: "Footwear",
-      weatherTag: "Rain & puddles",
-      description: "Keeps your socks dry when streets are wet."
-    }
+    { name: "Waterproof raincoat", category: "Outerwear",   weatherTag: "Rainy" },
+    { name: "Compact umbrella",    category: "Accessories", weatherTag: "Rainy" },
+    { name: "Waterproof boots",    category: "Footwear",    weatherTag: "Rainy" }
   ],
   snowy: [
-    {
-      name: "Down parka",
-      category: "Outerwear",
-      weatherTag: "Snow",
-      description: "Thick parka for snowy, windy days."
-    },
-    {
-      name: "Snow boots",
-      category: "Footwear",
-      weatherTag: "Snow",
-      description: "Grippy boots to prevent slipping on ice."
-    },
-    {
-      name: "Scarf",
-      category: "Accessories",
-      weatherTag: "Snow & wind",
-      description: "Keeps your neck and face warm in the wind."
-    }
+    { name: "Down parka", category: "Outerwear",   weatherTag: "Snowy" },
+    { name: "Snow boots", category: "Footwear",    weatherTag: "Snowy" },
+    { name: "Scarf",      category: "Accessories", weatherTag: "Snowy" }
   ]
 };
 
@@ -178,6 +59,7 @@ function buildRecommendations(tempF, conditionText) {
   const text = (conditionText || "").toLowerCase();
   let items = [];
 
+  // precip-based sets
   if (/rain|drizzle|shower|storm/i.test(text)) {
     items = items.concat(OUTFIT_SETS.rainy);
   }
@@ -185,6 +67,7 @@ function buildRecommendations(tempF, conditionText) {
     items = items.concat(OUTFIT_SETS.snowy);
   }
 
+  // temperature-based sets
   if (tempF <= 32) {
     items = items.concat(OUTFIT_SETS.cold);
   } else if (tempF <= 50) {
@@ -199,6 +82,7 @@ function buildRecommendations(tempF, conditionText) {
     items = OUTFIT_SETS.mild;
   }
 
+  // de-duplicate by name
   const seen = new Set();
   const unique = [];
   items.forEach((it) => {
@@ -214,23 +98,84 @@ function buildRecommendations(tempF, conditionText) {
   }));
 }
 
+function getInitialLandingState() {
+  if (typeof window === "undefined") return null;
+
+  try {
+    // Detect full page reloads and ignore any stored session state in that case.
+    const navEntries =
+      window.performance && window.performance.getEntriesByType
+        ? window.performance.getEntriesByType("navigation")
+        : null;
+    const isReload =
+      navEntries && navEntries[0] && navEntries[0].type === "reload";
+
+    if (isReload) {
+      window.sessionStorage.removeItem(LANDING_STATE_KEY);
+      return null;
+    }
+
+    const raw = window.sessionStorage.getItem(LANDING_STATE_KEY);
+    return raw ? JSON.parse(raw) : null;
+  } catch {
+    return null;
+  }
+}
+
 export default function LandingPage() {
-  const [location, setLocation] = useState("");
-  const [date, setDate] = useState("");
-  const [hasSubmitted, setHasSubmitted] = useState(false);
-  const [savedCount, setSavedCount] = useState(
-    JSON.parse(localStorage.getItem("wsw-saved-items") ?? "[]").length
+  const saved = getInitialLandingState() || {};
+
+  const [location, setLocation] = useState(saved.location ?? "");
+  const [date, setDate] = useState(saved.date ?? "");
+  const [hasSubmitted, setHasSubmitted] = useState(
+    saved.hasSubmitted && saved.weather && saved.recommendations?.length
+      ? true
+      : false
   );
-  const [filterCategory, setFilterCategory] = useState("All");
-  const [weather, setWeather] = useState(DEFAULT_WEATHER);
+  const [savedCount, setSavedCount] = useState(() => {
+    if (typeof window === "undefined") return 0;
+    try {
+      return JSON.parse(
+        window.localStorage.getItem("wsw-saved-items") ?? "[]"
+      ).length;
+    } catch {
+      return 0;
+    }
+  });
+  const [filterCategory, setFilterCategory] = useState(
+    saved.filterCategory ?? "All"
+  );
+  const [weather, setWeather] = useState(saved.weather ?? DEFAULT_WEATHER);
   const [addedMessage, setAddedMessage] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [recommendations, setRecommendations] = useState(
-    buildRecommendations(DEFAULT_WEATHER.tempF, DEFAULT_WEATHER.summary)
+    saved.recommendations ??
+      buildRecommendations(DEFAULT_WEATHER.tempF, DEFAULT_WEATHER.summary)
   );
 
-  const handleSubmit = async (e) => {
+  // persist landing page state in sessionStorage so it survives navigation
+  // between pages, but *not* full page reload (handled in getInitialLandingState)
+  useEffect(() => {
+    const snapshot = {
+      location,
+      date,
+      hasSubmitted,
+      weather,
+      filterCategory,
+      recommendations
+    };
+    try {
+      window.sessionStorage.setItem(
+        LANDING_STATE_KEY,
+        JSON.stringify(snapshot)
+      );
+    } catch {
+      // ignore storage errors
+    }
+  }, [location, date, hasSubmitted, weather, filterCategory, recommendations]);
+
+  async function handleSubmit(e) {
     e.preventDefault();
     setError("");
 
@@ -267,7 +212,7 @@ export default function LandingPage() {
       const data = await res.json();
 
       const forecastDays = data.forecast?.forecastday ?? [];
-      let selectedDay =
+      const selectedDay =
         forecastDays.find((d) => d.date === date) || forecastDays[0] || null;
 
       let tempF;
@@ -322,21 +267,40 @@ export default function LandingPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }
 
-  const handleSaveItem = (item) => {
+  function handleClear() {
+    setLocation("");
+    setDate("");
+    setHasSubmitted(false);
+    setWeather(DEFAULT_WEATHER);
+    setRecommendations(
+      buildRecommendations(DEFAULT_WEATHER.tempF, DEFAULT_WEATHER.summary)
+    );
+    setFilterCategory("All");
+    setError("");
+    setAddedMessage(null);
+
+    try {
+      window.sessionStorage.removeItem(LANDING_STATE_KEY);
+    } catch {
+      // ignore storage errors
+    }
+  }
+
+  function handleSaveItem(item) {
     const existing = JSON.parse(
-      localStorage.getItem("wsw-saved-items") ?? "[]"
+      window.localStorage.getItem("wsw-saved-items") ?? "[]"
     );
     const updated = [...existing, item];
-    localStorage.setItem("wsw-saved-items", JSON.stringify(updated));
+    window.localStorage.setItem("wsw-saved-items", JSON.stringify(updated));
     setSavedCount(updated.length);
 
     setAddedMessage(`You have added ${item.name} to cart!`);
     window.setTimeout(() => {
       setAddedMessage(null);
     }, 3000);
-  };
+  }
 
   return (
     <div>
@@ -349,89 +313,31 @@ export default function LandingPage() {
         }}
       />
 
-      <Form
-        onSubmit={handleSubmit}
-        className="mb-3"
-        aria-label="Weather search form"
-      >
-        <Row className="g-2 align-items-end">
-          <Col xs={12} md={5}>
-            <CitySelector
-              id="location"
-              label="Location"
-              value={location}
-              onChange={setLocation}
-            />
-          </Col>
-          <Col xs={12} md={4}>
-            <Form.Label htmlFor="date">Date</Form.Label>
-            <Form.Control
-              id="date"
-              type="date"
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
-            />
-          </Col>
-          <Col xs={12} md={3}>
-            <Button type="submit" className="w-100" disabled={loading}>
-              {loading ? "Loading forecast…" : "Get Recommendations"}
-            </Button>
-          </Col>
-        </Row>
-      </Form>
+      <WeatherSearchForm
+        {...{
+          location,
+          date,
+          loading,
+          error,
+          hasSubmitted,
+          addedMessage,
+          onLocationChange: setLocation,
+          onDateChange: setDate,
+          onSubmit: handleSubmit,
+          onClear: handleClear
+        }}
+      />
 
-      {error && (
-        <Alert variant="danger" role="alert">
-          {error}
-        </Alert>
-      )}
-
-      {addedMessage && (
-        <Alert variant="success" className="py-2" role="status">
-          {addedMessage}
-        </Alert>
-      )}
-
-      {!hasSubmitted && !error && (
-        <Alert variant="secondary" className="mt-2" role="status">
-          Submit a location and date to see weather and outfit recommendations.
-        </Alert>
-      )}
-
-      {hasSubmitted && (
-        <>
-          <Row className="mb-3 mt-2">
-            <Col xs={12} md={6}>
-              <Form.Label htmlFor="category">Filter by category</Form.Label>
-              <Form.Select
-                id="category"
-                value={filterCategory}
-                onChange={(e) => setFilterCategory(e.target.value)}
-              >
-                <option value="All">All</option>
-                <option value="Outerwear">Outerwear</option>
-                <option value="Top">Top</option>
-                <option value="Bottom">Bottom</option>
-                <option value="Footwear">Footwear</option>
-                <option value="Accessories">Accessories</option>
-              </Form.Select>
-            </Col>
-            <Col
-              xs={12}
-              md={6}
-              className="text-md-end mt-3 mt-md-0 fw-semibold"
-            >
-              Saved items in basket: {savedCount}
-            </Col>
-          </Row>
-
-          <RecommendationsList
-            items={recommendations}
-            filterCategory={filterCategory}
-            onSave={handleSaveItem}
-          />
-        </>
-      )}
+      <RecommendationsPanel
+        {...{
+          hasSubmitted,
+          filterCategory,
+          savedCount,
+          recommendations,
+          onFilterChange: setFilterCategory,
+          onSaveItem: handleSaveItem
+        }}
+      />
     </div>
   );
 }

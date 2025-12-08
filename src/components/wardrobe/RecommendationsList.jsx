@@ -1,5 +1,5 @@
 import { Row, Col, Alert } from "react-bootstrap";
-import ClothingCard from "../cards/ClothingCard";
+import ClothingCard from "./ClothingCard";
 
 export default function RecommendationsList(props) {
   const filtered = props.items.filter(
