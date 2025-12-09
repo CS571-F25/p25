@@ -1,9 +1,7 @@
-// src/App.jsx
-
 import { HashRouter, Routes, Route } from "react-router";
 import "./App.css";
 
-import RootLayout from "./components/RootLayout";
+import RootLayout from "./components/layout/RootLayout";
 import LandingPage from "./components/pages/LandingPage";
 import BasketPage from "./components/pages/BasketPage";
 import PastPurchasesPage from "./components/pages/PastPurchasesPage";

@@ -1,6 +1,6 @@
 import { Outlet } from "react-router";
 import { Container } from "react-bootstrap";
-import SmartWardrobeNavbar from "./nav/SmartWardrobeNavbar";
+import SmartWardrobeNavbar from "./SmartWardrobeNavbar";
 
 export default function RootLayout() {
   return (

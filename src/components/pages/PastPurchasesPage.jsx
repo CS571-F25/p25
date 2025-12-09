@@ -1,8 +1,6 @@
-// src/components/pages/PastPurchasesPage.jsx
-
 import { useEffect, useState } from "react";
 import { Alert, Col, Row } from "react-bootstrap";
-import ClothingCard from "../cards/ClothingCard";
+import ClothingCard from "../wardrobe/ClothingCard";
 
 export default function PastPurchasesPage() {
   const [items, setItems] = useState([]);

@@ -1,5 +1,3 @@
-// src/components/cards/ClothingCard.jsx
-
 import { useState } from "react";
 import { Card, Button } from "react-bootstrap";
 
