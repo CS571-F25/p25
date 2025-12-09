@@ -3,7 +3,7 @@ import { Row, Col } from "react-bootstrap";
 export default function WeatherHero(props) {
   const titleLocation = props.location || "Your location";
   const titleDate = props.date || "Select a date";
-  const w = props.weather;
+  const w = props.weather || {};
 
   return (
     <section
@@ -46,12 +46,15 @@ export default function WeatherHero(props) {
                   aria-hidden="true"
                   style={{ fontSize: "2rem", marginRight: "0.5rem" }}
                 >
-                  {w.iconEmoji}
+                  {w.iconEmoji || "🌤️"}
                 </span>
               )}
-              {w.summary} • {Math.round(w.tempF)}°F{" "}
-              <span>(feels like {Math.round(w.feelsLikeF)}°F)</span> •{" "}
-              {w.detail}
+              {(w.summary || "Weather")} •
+              {typeof w.tempF === "number" ? Math.round(w.tempF) : "--"}°F{" "}
+              <span>
+                (feels like {typeof w.feelsLikeF === "number" ? Math.round(w.feelsLikeF) : "--"}°F)
+              </span>
+              {w.detail ? ` • ${w.detail}` : ""}
             </p>
           </Col>
         </Row>

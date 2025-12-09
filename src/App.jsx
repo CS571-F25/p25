@@ -2,7 +2,8 @@ import { HashRouter, Routes, Route } from "react-router";
 import "./App.css";
 
 import RootLayout from "./components/layout/RootLayout";
-import LandingPage from "./components/pages/LandingPage";
+import SearchPage from "./components/pages/SearchPage";
+import RecommendationsPage from "./components/pages/RecommendationsPage";
 import BasketPage from "./components/pages/BasketPage";
 import PastPurchasesPage from "./components/pages/PastPurchasesPage";
 import AboutPage from "./components/pages/AboutPage";
@@ -13,7 +14,8 @@ export default function App() {
     <HashRouter>
       <Routes>
         <Route path="/" element={<RootLayout />}>
-          <Route index element={<LandingPage />} />
+          <Route index element={<SearchPage />} />
+          <Route path="recommendations" element={<RecommendationsPage />} />
           <Route path="basket" element={<BasketPage />} />
           <Route path="purchases" element={<PastPurchasesPage />} />
           <Route path="about" element={<AboutPage />} />
