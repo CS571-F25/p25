@@ -1,5 +1,5 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import crest from "../../assets/uw-crest.svg";
 
 export default function SmartWardrobeNavbar() {
