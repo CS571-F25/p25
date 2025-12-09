@@ -1,4 +1,4 @@
-import ClothingCard from './ClothingCard'
+import ClothingCard from './weather/ClothingCard'
 
 const sampleItems = [
     { id: 'coat-1', title: 'Raincoat', description: 'Waterproof raincoat for wet days.', link: '#'},
