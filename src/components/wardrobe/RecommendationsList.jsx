@@ -1,25 +1,30 @@
 import { Row, Col, Alert } from "react-bootstrap";
 import ClothingCard from "./ClothingCard";
 
-export default function RecommendationsList(props) {
-  const filtered = props.items.filter(
-    (item) =>
-      props.filterCategory === "All" || item.category === props.filterCategory
-  );
+export default function RecommendationsList({ items, filterCategory, onSave }) {
+  const visibleItems =
+    filterCategory === "All"
+      ? items
+      : items.filter((item) => item.category === filterCategory);
 
-  if (!filtered.length) {
+  if (!visibleItems.length) {
     return (
-      <Alert variant="info" role="status" className="mt-3">
-        No outfit recommendations match the selected filters.
-      </Alert>
+      <Row className="mt-3 g-3">
+        <Col xs={12}>
+          <Alert variant="info">
+            No recommendations available. Please go back and try a different
+            location or date.
+          </Alert>
+        </Col>
+      </Row>
     );
   }
 
   return (
     <Row className="mt-3 g-3">
-      {filtered.map((item) => (
+      {visibleItems.map((item) => (
         <Col key={item.id} xs={12} md={6} lg={4}>
-          <ClothingCard {...{ item, onSave: props.onSave }} />
+          <ClothingCard item={item} onSave={onSave} />
         </Col>
       ))}
     </Row>

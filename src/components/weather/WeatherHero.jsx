@@ -18,9 +18,9 @@ export default function WeatherHero(props) {
         <div className="text-center">
           <h1 className="mb-2">Weather Smart Wardrobe</h1>
           <p className="mb-0">
-            Enter a location and date within the next week to see forecasted
-            weather and outfit recommendations, which you can then add to your
-            basket and purchase.
+            Enter a location and a date within the next week to see forecasted
+            weather and outfit recommendations. You can then add items to your
+            basket and mark them as purchased.
           </p>
         </div>
       ) : (
@@ -30,29 +30,20 @@ export default function WeatherHero(props) {
               {titleLocation} on {titleDate}
             </h1>
             <p className="mb-0">
-              {w.iconUrl ? (
-                <img
-                  src={w.iconUrl}
-                  alt={w.summary}
-                  style={{
-                    width: "2.5rem",
-                    height: "2.5rem",
-                    marginRight: "0.5rem",
-                    verticalAlign: "middle"
-                  }}
-                />
-              ) : (
-                <span
-                  aria-hidden="true"
-                  style={{ fontSize: "2rem", marginRight: "0.5rem" }}
-                >
-                  {w.iconEmoji || "🌤️"}
-                </span>
-              )}
-              {(w.summary || "Weather")} •
+              <span
+                aria-hidden="true"
+                style={{ fontSize: "2rem", marginRight: "0.5rem" }}
+              >
+                {w.iconEmoji || "🌤️"}
+              </span>
+              {(w.summary || "Weather")} •{" "}
               {typeof w.tempF === "number" ? Math.round(w.tempF) : "--"}°F{" "}
               <span>
-                (feels like {typeof w.feelsLikeF === "number" ? Math.round(w.feelsLikeF) : "--"}°F)
+                (feels like{" "}
+                {typeof w.feelsLikeF === "number"
+                  ? Math.round(w.feelsLikeF)
+                  : "--"}
+                °F)
               </span>
               {w.detail ? ` • ${w.detail}` : ""}
             </p>

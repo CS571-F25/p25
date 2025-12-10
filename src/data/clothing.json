@@ -173,7 +173,6 @@
     "weatherTag": "Cool",
     "description": "Thin gloves for cool mornings.",
     "links": [
-      "https://www.uniqlo.com/us/en/search/?q=light+gloves",
       "https://www2.hm.com/en_us/search-results.html?q=light+gloves",
       "https://www.target.com/s?searchTerm=light+gloves",
       "https://www.zara.com/us/en/search?searchTerm=light+gloves"
@@ -262,7 +261,7 @@
       "https://www.target.com/s?searchTerm=blazer",
       "https://www.zara.com/us/en/search?searchTerm=blazer"
     ],
-    "image": "https://pixabay.com/get/gc14545da3580fe6eccb5ddd2906da43ffdf45884abb1c0065aa10bac8f50d1ec4a3178983758be9289ba41b51cf22be2efcabf2d5762fab134b48318edd84e29_640.jpg"
+    "image": "https://pixabay.com/get/gcd34c8a4bbd11f0fc280e723409939fb2304a40494881fc8ef18f4ecf7d3690002efe086dccbbe25f3b99d82f8163e5567516b33b44de86f6715882b49a4feef_1280.jpg"
   },
   {
     "id": "c25",
@@ -374,7 +373,7 @@
       "https://www.target.com/s?searchTerm=long+sleeve+shirt",
       "https://www.zara.com/us/en/search?searchTerm=long+sleeve+shirt"
     ],
-    "image": "https://pixabay.com/get/g8d7edffc814c748e93bf6ff9b564a84ffa22bbd7175052b421ba8d83417b1808bfd4e5ba7540321496603218cdc1a5f4245cf8643b4e4f36784de10db0d25765_640.jpg"
+    "image": "https://pixabay.com/get/gc14545da3580fe6eccb5ddd2906da43ffdf45884abb1c0065aa10bac8f50d1ec4a3178983758be9289ba41b51cf22be2efcabf2d5762fab134b48318edd84e29_640.jpg"
   },
   {
     "id": "c37",

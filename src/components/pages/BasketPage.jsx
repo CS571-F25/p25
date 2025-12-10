@@ -54,21 +54,6 @@ export default function BasketPage() {
     setSelectedIndex(null);
   };
 
-  const handlePurchaseConfirmedFromLink = (item, index) => {
-    // Item was marked as purchased from the link click modal
-    const existingPurchased = JSON.parse(
-      localStorage.getItem("wsw-purchased-items") ?? "[]"
-    );
-    localStorage.setItem(
-      "wsw-purchased-items",
-      JSON.stringify([...existingPurchased, item])
-    );
-
-    // Remove from basket
-    const updated = items.filter((_, idx) => idx !== index);
-    updateBasket(updated);
-  };
-
   const currentItem =
     selectedIndex != null ? items[selectedIndex] : null;
 
@@ -92,8 +77,7 @@ export default function BasketPage() {
                   hideSave: true,
                   showBasketActions: true,
                   onRemove: handleRemoveItem,
-                  onPurchase: handleStartPurchase,
-                  onPurchaseConfirmed: handlePurchaseConfirmedFromLink
+                  onPurchase: handleStartPurchase
                 }}
               />
             </Col>
@@ -109,25 +93,13 @@ export default function BasketPage() {
           {currentItem && (
             <>
               <p>
-                You&apos;re about to purchase{" "}
-                <strong>{currentItem.name}</strong>.
+                You&apos;re about to mark{" "}
+                <strong>{currentItem.name}</strong> as purchased.
               </p>
-              {currentItem.buyUrl ? (
-                <p>
-                  Product link:{" "}
-                  <a
-                    href={currentItem.buyUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Open product page
-                  </a>
-                </p>
-              ) : (
-                <p>
-                  A product link will appear here.
-                </p>
-              )}
+              <p>
+                After confirming, this item will move from your basket into
+                your Past Purchases.
+              </p>
             </>
           )}
         </Modal.Body>

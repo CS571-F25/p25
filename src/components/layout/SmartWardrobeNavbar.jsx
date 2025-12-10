@@ -2,12 +2,22 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import crest from "../../assets/uw-crest.svg";
 
+const LS_SUBMITTED_KEY = "wsw-has-submitted";
+
 export default function SmartWardrobeNavbar() {
+  // If we've already done a search in this tab, treat the recommendations
+  // page as the "home" page for this session.
+  const hasRecommendations =
+    typeof window !== "undefined" &&
+    window.sessionStorage?.getItem(LS_SUBMITTED_KEY) === "true";
+
+  const homePath = hasRecommendations ? "/recommendations" : "/";
+
   return (
     <Navbar bg="dark" variant="dark" sticky="top" expand="sm" collapseOnSelect>
       <Container>
         <Navbar.Toggle aria-controls="main-navbar" />
-        <Navbar.Brand as={Link} to="/">
+        <Navbar.Brand as={Link} to={homePath}>
           <img
             alt="UW Crest"
             src={crest}
@@ -19,10 +29,18 @@ export default function SmartWardrobeNavbar() {
         </Navbar.Brand>
         <Navbar.Collapse id="main-navbar">
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/">Home</Nav.Link>
-            <Nav.Link as={Link} to="/basket">My Basket</Nav.Link>
-            <Nav.Link as={Link} to="/purchases">Past Purchases</Nav.Link>
-            <Nav.Link as={Link} to="/about">About</Nav.Link>
+            <Nav.Link as={Link} to={homePath}>
+              Home
+            </Nav.Link>
+            <Nav.Link as={Link} to="/basket">
+              My Basket
+            </Nav.Link>
+            <Nav.Link as={Link} to="/purchases">
+              Past Purchases
+            </Nav.Link>
+            <Nav.Link as={Link} to="/about">
+              About
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

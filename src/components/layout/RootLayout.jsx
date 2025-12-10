@@ -1,14 +1,16 @@
-import { Outlet } from "react-router";
+import { Outlet } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import SmartWardrobeNavbar from "./SmartWardrobeNavbar";
 
 export default function RootLayout() {
   return (
-    <div>
+    <>
       <SmartWardrobeNavbar />
-      <Container className="mt-4 mb-4">
-        <Outlet />
-      </Container>
-    </div>
+      <main className="mt-4 mb-4">
+        <Container>
+          <Outlet />
+        </Container>
+      </main>
+    </>
   );
 }
