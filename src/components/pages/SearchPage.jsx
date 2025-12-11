@@ -72,11 +72,6 @@ export default function SearchPage() {
   const [loadingWeather, setLoadingWeather] = useState(false);
   const [fetchError, setFetchError] = useState("");
 
-  // Clear session when returning to search page
-  useEffect(() => {
-    clearSearchSession();
-  }, []);
-
   // Persist location/date within the session
   useEffect(() => {
     setSessionItem(LS_KEYS.location, location);
@@ -249,6 +244,7 @@ export default function SearchPage() {
             JSON.stringify(flat.map((i) => i.id))
           );
           window.sessionStorage.setItem(LS_KEYS.submitted, "true");
+          window.sessionStorage.setItem("wsw-current-page", "search");
         } catch {
           // ignore
         }
@@ -267,7 +263,6 @@ export default function SearchPage() {
     setLocation("");
     setDate("");
     setFetchError("");
-    clearSearchSession();
   };
 
   return (

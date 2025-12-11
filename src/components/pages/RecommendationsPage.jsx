@@ -38,16 +38,20 @@ export default function RecommendationsPage() {
     }
     initialCheckDone.current = true;
 
-    const hasSubmitted =
-      typeof window !== "undefined" &&
-      window.sessionStorage?.getItem(LS_KEYS.submitted) === "true";
+    // Mark that we're on the recommendations page
+    window.sessionStorage.setItem("wsw-current-page", "recommendations");
 
-    if (!hasSubmitted) {
+    const storedLocation = window.sessionStorage.getItem(LS_KEYS.location);
+    const storedWeather = window.sessionStorage.getItem(LS_KEYS.weather);
+    const storedRecs = window.sessionStorage.getItem(LS_KEYS.recs);
+
+    // Only redirect if there's NO data saved (user never submitted a search)
+    if (!storedLocation || !storedWeather || !storedRecs) {
       navigate("/");
       return;
     }
 
-    setLocation(window.sessionStorage.getItem(LS_KEYS.location) ?? "");
+    setLocation(storedLocation ?? "");
     setDate(window.sessionStorage.getItem(LS_KEYS.date) ?? "");
 
     const storedFilter = window.sessionStorage.getItem(LS_KEYS.filter);
@@ -55,7 +59,6 @@ export default function RecommendationsPage() {
       setFilterCategory(storedFilter);
     }
 
-    const storedWeather = window.sessionStorage.getItem(LS_KEYS.weather);
     if (storedWeather) {
       try {
         setWeather(JSON.parse(storedWeather));
@@ -64,7 +67,6 @@ export default function RecommendationsPage() {
       }
     }
 
-    const storedRecs = window.sessionStorage.getItem(LS_KEYS.recs);
     if (storedRecs) {
       try {
         const ids = JSON.parse(storedRecs);
