@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Alert, Button, Col, Form, Row } from "react-bootstrap";
 
@@ -17,6 +17,7 @@ const LS_KEYS = {
 
 export default function RecommendationsPage() {
   const navigate = useNavigate();
+  const initialCheckDone = useRef(false);
 
   const [location, setLocation] = useState("");
   const [date, setDate] = useState("");
@@ -29,8 +30,14 @@ export default function RecommendationsPage() {
   const [addedMessage, setAddedMessage] = useState(null);
   const [hasLoaded, setHasLoaded] = useState(false);
 
-  // Initialize from sessionStorage on mount
+  // Initialize from sessionStorage on mount (only check once)
   useEffect(() => {
+    // Only do the initial redirect check once
+    if (initialCheckDone.current) {
+      return;
+    }
+    initialCheckDone.current = true;
+
     const hasSubmitted =
       typeof window !== "undefined" &&
       window.sessionStorage?.getItem(LS_KEYS.submitted) === "true";

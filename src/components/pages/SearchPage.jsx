@@ -72,6 +72,11 @@ export default function SearchPage() {
   const [loadingWeather, setLoadingWeather] = useState(false);
   const [fetchError, setFetchError] = useState("");
 
+  // Clear session when returning to search page
+  useEffect(() => {
+    clearSearchSession();
+  }, []);
+
   // Persist location/date within the session
   useEffect(() => {
     setSessionItem(LS_KEYS.location, location);
