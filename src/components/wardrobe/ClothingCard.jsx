@@ -1,5 +1,11 @@
 import { Card, Button } from "react-bootstrap";
 
+function getImagePath(itemName) {
+  // Convert item name to filename format (e.g., "Light Jacket" -> "light-jacket.jpg")
+  const filename = itemName.toLowerCase().replace(/\s+/g, '-') + '.jpg';
+  return new URL(`../../assets/clothing/${filename}`, import.meta.url).href;
+}
+
 function getRetailerName(url) {
   try {
     const u = new URL(url);
@@ -46,7 +52,7 @@ export default function ClothingCard(props) {
       {item.image && (
         <Card.Img
           variant="top"
-          src={item.image}
+          src={getImagePath(item.name)}
           alt={item.name}
           style={{ height: "200px", objectFit: "cover" }}
         />

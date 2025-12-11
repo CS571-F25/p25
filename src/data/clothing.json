@@ -9,7 +9,7 @@
       "https://www.uniqlo.com/us/en/search/?q=light+jacket",
       "https://www2.hm.com/en_us/search-results.html?q=light+jacket"
     ],
-    "image": "https://pixabay.com/get/gbd4a7a96b2d50fc989c523f339c54c7bf57634e6cc384e027da00fd34b05b5d8ff606cb525814a5225fbd33f79c3ddc658819e9108ef390b679f342aa0ca3905_640.jpg"
+    "image": "../assets/clothing/light-jacket.jpg"
   },
   {
     "id": "c3",
@@ -22,7 +22,7 @@
       "https://www.patagonia.com/shop/mens-sweaters",
       "https://www.arcteryx.com/us/en/c/mens-knitwear"
     ],
-    "image": "https://pixabay.com/get/g7cf2acbe2ab81d049cf6feb2d81e1f885dc133274b9681b2d0bdf531cba6bd34e61a0cfb27a49ce0c755921115ad7a5ad6908845dd92fbd219c5ab070c78964c_640.jpg"
+    "image": "../assets/clothing/sweater.jpg"
   },
   {
     "id": "c4",
@@ -35,7 +35,7 @@
       "https://www2.hm.com/en_us/search-results.html?q=t-shirt",
       "https://www.target.com/s?searchTerm=t-shirt"
     ],
-    "image": "https://pixabay.com/get/gadbe4cefed509f69f34c374fd6f8c1b808cbf285b9ec55de06231e21fc0f14b77bdca76eba3794f359e88c03bd1ddc1b5bdf9ba048dc730168c60f8def0eec43_640.jpg"
+    "image": "../assets/clothing/t-shirt.jpg"
   },
   {
     "id": "c5",
@@ -47,7 +47,7 @@
       "https://www2.hm.com/en_us/search-results.html?q=jeans",
       "https://www.target.com/s?searchTerm=jeans"
     ],
-    "image": "https://pixabay.com/get/gf71fa12bc5d7fbae7d981ec78cdb625a5c597572c876fc63cb3c10e49f0a3cd0b5525f987567f64dc394a8e868039db080db3aad41734cf5bebbb6fa690b584b_640.jpg"
+    "image": "../assets/clothing/jeans.jpg"
   },
   {
     "id": "c6",
@@ -60,7 +60,7 @@
       "https://www2.hm.com/en_us/search-results.html?q=tank+top",
       "https://www.target.com/s?searchTerm=tank+top"
     ],
-    "image": "https://pixabay.com/get/g2e0e959c2473d56e292df82fe9ca5066fc110e8c3cccd98a54047799881ded5dee1925552bd3532d0239d3e8d8be4aae391681d1c08ae990c4b0408e6548790b_640.jpg"
+    "image": "../assets/clothing/tank-top.jpg"
   },
   {
     "id": "c7",
@@ -72,7 +72,7 @@
       "https://www2.hm.com/en_us/search-results.html?q=hoodie",
       "https://www.uniqlo.com/us/en/search/?q=hoodie"
     ],
-    "image": "https://pixabay.com/get/g6454b81844efcd960e150165b0b5d0b2d92e9300a459d8a9c6057dfc1881a7b58f8627ca3bc15ab30e578a45d32e1fc9_640.jpg"
+    "image": "../assets/clothing/hoodie.jpg"
   },
   {
     "id": "c8",
@@ -84,7 +84,7 @@
       "https://www.target.com/s?searchTerm=windbreaker",
       "https://www2.hm.com/en_us/search-results.html?q=windbreaker"
     ],
-    "image": "https://pixabay.com/get/ga69a22a68515369c81ad2daa5988c5cd20b2831404489a696dd1104fd5145150560db52ccacd691c6d003d50866458d5d3c517d1f5aeac3cd46ba424018e6145_640.jpg"
+    "image": "../assets/clothing/windbreaker.jpg"
   },
   {
     "id": "c9",
@@ -96,7 +96,7 @@
       "https://www.target.com/s?searchTerm=rain+boots",
       "https://www.zara.com/us/en/man-shoes-l840.html"
     ],
-    "image": "https://pixabay.com/get/g96a03039a54f4c3030260f4f93b2f8973725ebcb8df3fa690273c7555e4d73fd176a9b3b4990624f09cbd1551819f1a25cd8c0f57c2994b7ae4f301a615714ff_640.jpg"
+    "image": "../assets/clothing/rain-boots.jpg"
   },
   {
     "id": "c10",
@@ -108,7 +108,7 @@
       "https://www.target.com/s?searchTerm=umbrella",
       "https://www.uniqlo.com/us/en/search/?q=umbrella"
     ],
-    "image": "https://pixabay.com/get/g00d6e26682f59066b37d031ee4717a534debd58de81b7e9d4df059ee4a03834781bfedb4865b16dd44238c0577e2f05171dd8652fccb0531ae57f0a8530ce562_640.jpg"
+    "image": "../assets/clothing/umbrella.jpg"
   },
   {
     "id": "c12",
@@ -122,7 +122,7 @@
       "https://www.target.com/s?searchTerm=beanie",
       "https://www.zara.com/us/en/search?searchTerm=beanie"
     ],
-    "image": "https://pixabay.com/get/g9480cc0666cf4e0045da6a171a7a85ee51b70ef78973351b756208ca4c27849f960198b5e39c39a9fe912099a637bf18eeb6c7170b46c3f3538be2814a543fbc_640.jpg"
+    "image": "../assets/clothing/beanie.jpg"
   },
   {
     "id": "c14",
@@ -136,7 +136,7 @@
       "https://www.target.com/s?searchTerm=sandals",
       "https://www.zara.com/us/en/search?searchTerm=sandals"
     ],
-    "image": "https://pixabay.com/get/g21c9eef505da0be2f704826e17eb44d22cb66a18ad072b22bb1dcdcc7cc66e5188c94eeed00c97a7691a4f3f9d6da78e_640.jpg"
+    "image": "../assets/clothing/sandals.jpg"
   },
   {
     "id": "c15",
@@ -150,7 +150,7 @@
       "https://www.target.com/s?searchTerm=scarf",
       "https://www.zara.com/us/en/search?searchTerm=scarf"
     ],
-    "image": "https://pixabay.com/get/g9ccf5ac3b81da1b75acb3cfa452463c24055ff732397f1dc909bd15e1d4f584746c1ae87d55f9d04745855ede6ad31d2422bead26cdd624fc26d6132b5050d8a_640.jpg"
+    "image": "../assets/clothing/scarf.jpg"
   },
   {
     "id": "c16",
@@ -164,20 +164,7 @@
       "https://www.target.com/s?searchTerm=puffer+jacket",
       "https://www.zara.com/us/en/search?searchTerm=puffer+jacket"
     ],
-    "image": "https://pixabay.com/get/gf2a511a9ded43c94bc87a36aba6001529fc1102d703adf6ae43a4e71243dfb1f0067e9a28e75953cd099da6688481827e9eb79da0b244ab676a19bc6060637e0_640.jpg"
-  },
-  {
-    "id": "c17",
-    "name": "Light Gloves",
-    "category": "Accessory",
-    "weatherTag": "Cool",
-    "description": "Thin gloves for cool mornings.",
-    "links": [
-      "https://www2.hm.com/en_us/search-results.html?q=light+gloves",
-      "https://www.target.com/s?searchTerm=light+gloves",
-      "https://www.zara.com/us/en/search?searchTerm=light+gloves"
-    ],
-    "image": "https://pixabay.com/get/g21156be08cd60efef694eb2397f7c7dfa9b4065ba225ee5e49c483f4989a90007a231bc7e856a1e4bd764e67c990c3d326e620f0ebdef5565036fd27f27f82de_640.jpg"
+    "image": "../assets/clothing/puffer-jacket.jpg"
   },
   {
     "id": "c18",
@@ -191,7 +178,7 @@
       "https://www.target.com/s?searchTerm=running+shoes",
       "https://www.zara.com/us/en/search?searchTerm=running+shoes"
     ],
-    "image": "https://pixabay.com/get/g33639d3e33668fb2cb49022b8a8b1b284e9fbb75b4126418958f5d8088c7c3c49594187d28ce323ea213a6bc2dbe641e_640.jpg"
+    "image": "../assets/clothing/running-shoes.jpg"
   },
   {
     "id": "c19",
@@ -205,7 +192,7 @@
       "https://www.target.com/s?searchTerm=cardigan",
       "https://www.zara.com/us/en/search?searchTerm=cardigan"
     ],
-    "image": "https://pixabay.com/get/g48495ec3642b0279c995fa7b64d6bf2ef2ee5522f1a7ae279ea15362d43a99e42aa7ca8038e326d37c037bc61a34f896eabb743c344ac35b4d05d26893fdf0d7_640.jpg"
+    "image": "../assets/clothing/cardigan.jpg"
   },
   {
     "id": "c20",
@@ -219,7 +206,7 @@
       "https://www.target.com/s?searchTerm=leather+jacket",
       "https://www.zara.com/us/en/search?searchTerm=leather+jacket"
     ],
-    "image": "https://pixabay.com/get/g215f376ce2afd21f575c364c217e314433a7978fbd6de2fa2a8d2a03e9e03ced4884dd27da55456a2236708006f2682aff1f6257fb9db73a913e45873ce8cade_640.jpg"
+    "image": "../assets/clothing/leather-jacket.jpg"
   },
   {
     "id": "c22",
@@ -233,7 +220,7 @@
       "https://www.target.com/s?searchTerm=hat",
       "https://www.zara.com/us/en/search?searchTerm=hat"
     ],
-    "image": "https://pixabay.com/get/gc2c89a9760878d836c80c7e1e0443bc1139741fd2ea9ef9f8aa939519b450016f2840dcbbaef7a934bcb0de4fd8f92bc9804de0638ad86dd977c2ca2508fb480_640.jpg"
+    "image": "../assets/clothing/hat.jpg"
   },
   {
     "id": "c23",
@@ -247,7 +234,7 @@
       "https://www.target.com/s?searchTerm=dress",
       "https://www.zara.com/us/en/search?searchTerm=dress"
     ],
-    "image": "https://pixabay.com/get/g7f6c39f2edfd75400bc355680c7dd70b306c8daba802ecd55a8c04b2aba3bdb414d8257160e2bbcbeda81d0b0c9c5fbe58bffd802436c7dcbdf3b0f5b4ce6207_640.jpg"
+    "image": "../assets/clothing/dress.jpg"
   },
   {
     "id": "c24",
@@ -261,7 +248,7 @@
       "https://www.target.com/s?searchTerm=blazer",
       "https://www.zara.com/us/en/search?searchTerm=blazer"
     ],
-    "image": "https://pixabay.com/get/gcd34c8a4bbd11f0fc280e723409939fb2304a40494881fc8ef18f4ecf7d3690002efe086dccbbe25f3b99d82f8163e5567516b33b44de86f6715882b49a4feef_1280.jpg"
+    "image": "../assets/clothing/blazer.jpg"
   },
   {
     "id": "c25",
@@ -275,7 +262,7 @@
       "https://www.target.com/s?searchTerm=baseball+cap",
       "https://www.zara.com/us/en/search?searchTerm=baseball+cap"
     ],
-    "image": "https://pixabay.com/get/g5d8fc005faf10a877f8c9f833dc90bd32b5f177356bbcc73608458bd688f8fbde580f1d2804f1ef9212cb1fc533525f040a699c1d2a2e55a7a5666b8094a7fc0_640.jpg"
+    "image": "../assets/clothing/baseball-cap.jpg"
   },
   {
     "id": "c26",
@@ -289,7 +276,7 @@
       "https://www.target.com/s?searchTerm=wool+socks",
       "https://www.zara.com/us/en/search?searchTerm=wool+socks"
     ],
-    "image": "https://pixabay.com/get/g7fc408f095d53a24ec98c0bcf441983c66060c3385f2aba8ee9a56eea506532ddf6ce04aebdc6296542a4bd979b65e8e3ce16491dde9c9a09549508e04065231_640.jpg"
+    "image": "../assets/clothing/wool-socks.jpg"
   },
   {
     "id": "c29",
@@ -303,7 +290,7 @@
       "https://www.target.com/s?searchTerm=ankle+boots",
       "https://www.zara.com/us/en/search?searchTerm=ankle+boots"
     ],
-    "image": "https://pixabay.com/get/gfffbfce3ccabcb4e8ef321fc1b807264a3f21aa636e34f86b241fa958cad2f211990657deaf11adc739da287f412029edf8bb25ee78783f176348f26bb3e0698_640.jpg"
+    "image": "../assets/clothing/ankle-boots.jpg"
   },
   {
     "id": "c30",
@@ -317,7 +304,7 @@
       "https://www.target.com/s?searchTerm=sunglasses",
       "https://www.zara.com/us/en/search?searchTerm=sunglasses"
     ],
-    "image": "https://pixabay.com/get/g791657107fe82b291c4da0621d4ab8585be0cc834bf60fc85a90f658c315eec9723e441ab5eba84db2d683f6966dd3deb12fb4bbc499a8bd174d48dbe5504df7_640.jpg"
+    "image": "../assets/clothing/sunglasses.jpg"
   },
   {
     "id": "c31",
@@ -331,7 +318,7 @@
       "https://www.target.com/s?searchTerm=winter+coat",
       "https://www.zara.com/us/en/search?searchTerm=winter+coat"
     ],
-    "image": "https://pixabay.com/get/g6cb56dc3896f189fffba3bfe864a258f8b316f72a1f98edc19e912743e67d8de074660698f4dd66bfa60922b9b299a982dede31552159e12be62474cd5deb72b_640.jpg"
+    "image": "../assets/clothing/winter-coat.jpg"
   },
   {
     "id": "c33",
@@ -345,7 +332,7 @@
       "https://www.target.com/s?searchTerm=wool+gloves",
       "https://www.zara.com/us/en/search?searchTerm=wool+gloves"
     ],
-    "image": "https://pixabay.com/get/ge496e8c055c77b9aa4d93ab6e779d3884157da602e9d86fb3625169113bb7c198f5f34fc59c8906bc8d4832d945ea4127f5b132af165a31cb192b7024023196c_640.jpg"
+    "image": "../assets/clothing/wool-gloves.jpg"
   },
   {
     "id": "c34",
@@ -359,7 +346,7 @@
       "https://www.target.com/s?searchTerm=snow+boots",
       "https://www.zara.com/us/en/search?searchTerm=snow+boots"
     ],
-    "image": "https://pixabay.com/get/g1178bd5b7bd17cbab734e9ef83a21810c4334aaa69d371466e9a133393acc0949e6a7a265d6d1c60a03b36ba7120ffe5_640.jpg"
+    "image": "../assets/clothing/snow-boots.jpg"
   },
   {
     "id": "c36",
@@ -373,7 +360,7 @@
       "https://www.target.com/s?searchTerm=long+sleeve+shirt",
       "https://www.zara.com/us/en/search?searchTerm=long+sleeve+shirt"
     ],
-    "image": "https://pixabay.com/get/gc14545da3580fe6eccb5ddd2906da43ffdf45884abb1c0065aa10bac8f50d1ec4a3178983758be9289ba41b51cf22be2efcabf2d5762fab134b48318edd84e29_640.jpg"
+    "image": "../assets/clothing/long-sleeve-shirt.jpg"
   },
   {
     "id": "c37",
@@ -387,7 +374,7 @@
       "https://www.target.com/s?searchTerm=linen+shirt",
       "https://www.zara.com/us/en/search?searchTerm=linen+shirt"
     ],
-    "image": "https://pixabay.com/get/g6c4f8c146411cf1420821c72a4179227cd9d1610b1fbd6658331aee961c3106292b99b85282b34f73bce31127ffc068b_640.jpg"
+    "image": "../assets/clothing/linen-shirt.jpg"
   },
   {
     "id": "c39",
@@ -401,6 +388,6 @@
       "https://www.target.com/s?searchTerm=denim+jacket",
       "https://www.zara.com/us/en/search?searchTerm=denim+jacket"
     ],
-    "image": "https://pixabay.com/get/g791657107fe82b291c4da0621d4ab8585be0cc834bf60fc85a90f658c315eec9723e441ab5eba84db2d683f6966dd3deb12fb4bbc499a8bd174d48dbe5504df7_640.jpg"
+    "image": "../assets/clothing/denim-jacket.jpg"
   }
 ]
